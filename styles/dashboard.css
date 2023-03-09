@@ -1,0 +1,62 @@
+.resource{
+    width: 20vw;
+    height:10vh;
+    margin-left: 5vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1vw;
+}
+#dashboard-resources{
+    margin-top: -4%;
+    float: left;
+    width: 20vw;
+    transition: 0.3s;
+}
+#dashboard-resources-money{
+    background-color: rgba(0, 255, 0, 0.5);
+    text-align: center;
+}
+
+#dashboard-resources-money:hover{
+    background-color: rgba(0, 255, 0, 0.6);
+}
+
+#dashboard-resources-michiganquarters{
+    background-color: rgba(0, 225, 255, 0.5);
+    text-align: center;
+}
+
+#dashboard-resources-michiganquarters:hover{
+    background-color: rgba(0, 225, 255, 0.6);
+}
+
+#dashboard-tasks{
+    margin-top: -4%;
+    float: right;
+}
+
+#dashboard-middle{
+    width: 7vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    float: left;
+}
+
+.dashboard-middle-button{
+    margin-left: 6.5vw;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 1vw;
+    border: none;
+    transition: 0.3s;
+}
+.dashboard-middle-button:hover{
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.task{
+    width: 20vw;
+    height:10vh;
+    margin-right: 5vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1vw;
+}

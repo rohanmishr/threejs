@@ -1,0 +1,54 @@
+#farming{
+    text-align: center;
+}
+#farming-slots{
+    border: red 1px solid;
+    width: 19vw;
+    float: left;
+}
+
+.farming-slot{
+    background-color: #000000;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    width: 5vw;
+    height: 5vw;
+    display: block;
+    text-align: center;
+    line-height: 100px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#farming-extensions{
+    border: lime 1px solid;
+    width: 19vw;
+    float: left;
+}
+.farming-extension{
+    background-color: #000000;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    width: 5vw;
+    height: 5vw;
+    display: block;
+    text-align: center;
+    line-height: 100px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#farming-display{
+    border: blue 1px solid;
+    width: 19vw;
+    float: right;
+    height: 17.3vw;
+}

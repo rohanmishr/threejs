@@ -19,7 +19,7 @@
     text-align: center;
     line-height: 100px;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 1vw;
     font-weight: bold;
     cursor: pointer;
 }
@@ -49,6 +49,6 @@
 #farming-display{
     border: blue 1px solid;
     width: 19vw;
-    float: right;
+    float: left;
     height: 17.3vw;
 }

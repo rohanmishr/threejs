@@ -41,16 +41,34 @@ function Resource(name, desc, rarity){
     this.rarity = rarity;
 }
 
-function Synthesizer(name, desc, power){
+function Synthesizer(name, desc, power, grade){
     this.name = name;
     this.desc = desc;
     this.power = power;
+    this.grade = grade;
 }
 
-function Biotech(name, desc, power){
+function Biotech(name, desc, power, grade){
     this.name = name;
     this.desc = desc;
     this.power = power;
+    this.grade = grade;
+}
+
+function GradeToString(g){
+    if(g == BASIC){
+        return "Basic";
+    }else if(g == ADVANCED){
+        return "Advanced";
+    }else if(g == COMPLEX){
+        return "Complex";
+    }else if(g == EXPERT){
+        return "Expert";
+    }else if(g == MASTER){
+        return "Master";
+    }else if(g == INDUSTRIAL){
+        return "Industrial";
+    }
 }
 
 //resources

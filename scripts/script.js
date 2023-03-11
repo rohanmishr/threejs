@@ -1,5 +1,7 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { MotionBlurPass } from 'three/examples/jsm/postprocessing/MotionBlurPass.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -146,6 +148,9 @@ const ambientLight = new THREE.AmbientLight( 0x404040 ); // soft white light
 ambientLight.shadow = true;
 //scene.add( ambientLight );
 
+//postprocessing
+
+
 //define
 var player = {speed: 0.05};
 
@@ -235,6 +240,29 @@ function Log(t){
     document.getElementById("debuglog").innerHTML = "";
     document.getElementById("debuglog").innerHTML += t;
 }
+
+var itemArr = machineArr.concat(farmingArr);
+itemArr.push(new Machine("Basic item", "Item description.", 1, BASIC), new Machine("Advanced item", "Item description.", 2, ADVANCED) ,new Machine("Complex item", "Item description.", 3, COMPLEX), new Machine("Expert item", "Item description.", 4, EXPERT), new Machine("Master item", "Item description.", 5, MASTER), new Machine("Industrial item", "Item description.", 6, INDUSTRIAL));
+itemArr = SortByGrade(itemArr);
+
+function renderItemViewer(){
+    document.getElementById("dashboard-item-viewer-inner").innerHTML = "";
+    for(var i = 0; i < itemArr.length; i++){
+        document.getElementById("dashboard-item-viewer-inner").innerHTML += 
+        "<div class='itemviewer-item-container'>"+
+            `<div class='itemviewer-item-tooltip ${GradeToString(itemArr[i].grade)}-tooltip'>`+
+                `<h3>${itemArr[i].name}</h3>`+
+                `<div class='${GradeToString(itemArr[i].grade)}-tooltip-grade'>${GradeToString(itemArr[i].grade)}</div>`+
+                `<p>${itemArr[i].desc}</p>`+
+            "</div>"+
+            `<div class='itemviewer-item ${GradeToString(itemArr[i].grade)}'>${itemArr[i].name}</div>`+
+        "</div>";
+    }
+}
+
+renderItemViewer();
+
+var frames = 0;
 //main loop
 function animate() {
 	requestAnimationFrame( animate );
@@ -289,6 +317,8 @@ function animate() {
 
     document.getElementById("debug2").innerHTML = "CamVector3" + camera.getWorldDirection(direction).x + " " + camera.getWorldDirection(direction).y + " " + camera.getWorldDirection(direction).z;
     document.getElementById("debug3").innerHTML = "vicinity_worktable" + nearWorktable;
+    frames++;
+    document.getElementById("debugframe").innerHTML = "frames: " + frames;
 }
 console.clear();
 animate();

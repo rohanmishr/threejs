@@ -39,13 +39,20 @@ body{
     height: 20%;
     z-index: 999;
 }
-
+.gui-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .gui{
     position: absolute;
-    top: 25%;
-    left: 20%;
     width: 60vw;
-    height: 50%;
+    height: 60%;
     z-index: 999;
     display: block;
     background-color: rgba(0,0,0,0.5);
@@ -55,8 +62,8 @@ body{
 }
 #debug{
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 5vw;
+    left: 1%;
     width: 2vw;
     height: 2vw;
     z-index: 999;
@@ -66,4 +73,26 @@ body{
     text-align: center;
     font-size: 3vw;
     margin-top: 1%;
+}
+#topleft{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#items-list{
+    display: none;
+}
+
+#topleft-button-book{
+    width: 2vw;
+    height: 2vw;
+}
+
+#topleftdisplay{
+    position: absolute;
+    top: 0;
+    left: 1%;
+    height: 2vw;
+    z-index: 999;
+    display: block;
 }

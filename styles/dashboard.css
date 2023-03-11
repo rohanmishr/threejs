@@ -1,3 +1,42 @@
+@keyframes slideLeft{
+    0%{
+        width: 0vw;
+    }
+    100%{
+        width: 17vw;
+    }
+}
+
+@keyframes master{
+    0%{
+        background-color: rgba(255, 255, 0, 0.5);
+        border: solid 3px rgb(255, 183, 0);
+    }
+    50%{
+        background-color: rgba(255, 255, 0, 0.6);
+        border: solid 3px rgb(255, 199, 57);
+    }
+    100%{
+        background-color: rgba(255, 255, 0, 0.5);
+        border: solid 3px rgb(255, 183, 0);
+    }
+}
+
+@keyframes industrial{
+    0%{
+        background-color: rgba(255, 12, 50, 0.5);
+        border: solid 3px rgb(255, 12, 50);
+    }
+    50%{
+        background-color: rgba(255, 12, 50, 0.6);
+        border: solid 3px rgb(255, 57, 120);
+    }
+    100%{
+        background-color: rgba(255, 12, 50, 0.5);
+        border: solid 3px rgb(255, 0, 50);
+    }
+}
+
 .resource{
     width: 20vw;
     height:10vh;
@@ -14,6 +53,13 @@
 #dashboard-resources-money{
     background-color: rgba(0, 255, 0, 0.5);
     text-align: center;
+}
+
+#dashboard-main{
+    display: block;
+}
+#dashboard-item-viewer{
+    display: none;
 }
 
 #dashboard-resources-money:hover{
@@ -49,6 +95,7 @@
     border: none;
     transition: 0.3s;
 }
+
 .dashboard-middle-button:hover{
     background-color: rgba(255, 255, 255, 0.6);
 }
@@ -59,4 +106,117 @@
     margin-right: 5vw;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 1vw;
+}
+#dashboard-item-viewer{
+    padding: 1vw 1vw 1vw 1vw;
+    vertical-align: top;
+}
+.itemviewer-item-container{
+    position: relative;
+    float: left;
+}
+.itemviewer-item{
+    width: 5vw;
+    height: 5vw;
+    margin: 0.5vw 0.5vw 0.5vw 0.5vw;
+    border-radius: 1vw;
+    border: solid 3px black;
+    float: top;
+    overflow-x: hidden;
+}
+.itemviewer-item-container:hover .itemviewer-item-tooltip{
+    animation: slideLeft 0.75s ease-out;
+    border: solid 3px black;
+    border-radius: 1vw;
+    display: block;
+    right: 105%;
+    width: 17vw;
+    height: 17vw;
+    position: absolute;
+    z-index: 998;
+    overflow-x: hidden;
+}
+.itemviewer-item-tooltip{
+    display: none;
+    overflow-x: hidden;
+}
+.Basic-tooltip-grade{
+    width: 17vw;
+    height: 2vw;
+    background-color: rgb(168, 168, 168);
+    text-align: center;
+}
+.Advanced-tooltip-grade{
+    width: 17vw;
+    height: 2vw;
+    background-color: rgb(40, 245, 40);
+    text-align: center;
+}
+.Complex-tooltip-grade{
+    width: 17vw;
+    height: 2vw;
+    background-color: rgb(84, 84, 241);
+    text-align: center;
+}
+.Expert-tooltip-grade{
+    width: 17vw;
+    height: 2vw;
+    background-color: rgb(199, 54, 235);
+    text-align: center;
+}
+.Master-tooltip-grade{
+    width: 17vw;
+    height: 2vw;
+    background-color: rgb(255, 196, 48);
+    text-align: center;
+}
+.Industrial-tooltip-grade{
+    width: 17vw;
+    height: 2vw;
+    background-color: rgb(255, 64, 93);
+    text-align: center;
+}
+.Basic{
+    border: solid 3px gray;
+    background-color: rgba(100, 100, 100, 0.5);
+}
+.Basic-tooltip{
+    background-color: rgb(100, 100, 100);
+}
+.Advanced{
+    border: solid 3px rgb(3, 186, 3);
+    background-color: rgba(3, 186, 3, 0.5);
+}
+.Advanced-tooltip{
+    background-color: rgb(3, 186, 3);
+}
+.Complex{
+    border: solid 3px rgb(3, 3, 186);
+    background-color: rgba(3, 3, 186, 0.5);
+}
+.Complex-tooltip{
+    background-color: rgb(3, 3, 186);
+}
+.Expert{
+    border: solid 3px rgb(157, 5, 195);
+    background-color: rgba(157, 5, 195, 0.5);
+}
+.Expert-tooltip{
+    background-color: rgb(157, 5, 195);
+}
+.Master{
+    animation: master 5s infinite;
+    border: solid 3px rgb(255, 183, 0);
+    background-color: rgba(255, 183, 0, 0.5);
+}
+.Master-tooltip{
+    background-color: rgb(255, 183, 0);
+}
+.Industrial{
+    animation: industrial 5s infinite;
+    border: solid 3px rgb(255, 12, 97);
+    background-color: rgba(255, 12, 97, 0.5);
+}
+.Industrial-tooltip{
+    background-color: rgb(255, 12, 97);
 }

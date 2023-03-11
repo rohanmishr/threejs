@@ -12,10 +12,13 @@
 			{
 				"imports": {
 					"three": "https://unpkg.com/three@0.138.0/build/three.module.js",
-					"three/addons/": "https://unpkg.com/three@0.138.0/examples/jsm/"
+					"three/addons/": "https://unpkg.com/three@0.138.0/examples/jsm/",
+					"three/examples/jsm/postprocessing/EffectComposer": "https://unpkg.com/three@0.138.0/examples/jsm/postprocessing/EffectComposer.js",
+    				"three/examples/jsm/postprocessing/MotionBlurPass": "https://unpkg.com/three@0.138.0/examples/jsm/postprocessing/MotionBlurPass.js"
 				}
 			}
 		</script>
+		<script src="scripts/onload.js"></script>
 	</head>
 	<body>
 		<div id="menu">
@@ -26,95 +29,116 @@
 			<img src="textures/cross.png" id="crosshair" alt="crosshair">
 		</div>
 
+		<div id="topleftdisplay">
+			<p>Idaho Simulator</p>
+			<p>Version 0.0.1</p>
+		</div>
+		
 		<div id="debug">
 			<p id="debug2">CamVector3:</p>
 			<p id="debug3">vicinity_worktable</p>
+			<p id="debugframe">frames: </p>
 			<p id="debuglog">LOG:</p>
 		</div>
-		<div class="gui" id="dashboard">
-			<h1>Dashboard</h1>
-			<div id="dashboard-resources">
-				<div class="resource" id="dashboard-resources-money">
-					<h3>Money</h3>
+
+		<div class="gui-container">
+			<div class="gui" id="dashboard">
+				<div id="dashboard-main">
+					<h1>Dashboard</h1>
+					<div id="dashboard-resources">
+						<div class="resource" id="dashboard-resources-money">
+							<h3>Money</h3>
+						</div>
+						<div class="resource" id="dashboard-resources-michiganquarters">
+							<h3>Michigan Quarters</h3>
+						</div>
+						<div class="resource">
+							<h3>something</h3>
+						</div>
+					</div>
+					<div id="dashboard-middle">
+						<button class="dashboard-middle-button">Map</button><br>
+						<button class="dashboard-middle-button">Settings</button><br>
+						<button onclick="toggleItemViewer()" class="dashboard-middle-button">Item Viewer</button><br>
+					</div>
+					<div id="dashboard-tasks">
+						<div class="task">
+							<h3>Task 1</h3>
+						</div>
+						<div class="task">
+							<h3>Task 2</h3>
+						</div>
+						<div class="task">
+							<h3>Task 3</h3>
+						</div>
+					</div>
 				</div>
-				<div class="resource" id="dashboard-resources-michiganquarters">
-					<h3>Michigan Quarters</h3>
-				</div>
-				<div class="resource">
-					<h3>something</h3>
-				</div>
-			</div>
-			<div id="dashboard-middle">
-				<button class="dashboard-middle-button">Map</button><br>
-				<button class="dashboard-middle-button">Settings</button><br>
-				<button class="dashboard-middle-button">Profile</button><br>
-			</div>
-			<div id="dashboard-tasks">
-				<div class="task">
-					<h3>Task 1</h3>
-				</div>
-				<div class="task">
-					<h3>Task 2</h3>
-				</div>
-				<div class="task">
-					<h3>Task 3</h3>
+				<div id="dashboard-item-viewer">
+					<button id="return-button-item-viewer" onclick="toggleItemViewer()">Back to Dashboard</button>
+					<h1>Item Viewer</h1>
+					<div id="dashboard-item-viewer-inner">
+
+					</div>
 				</div>
 			</div>
 		</div>
-
-		<div class="gui" id="farming">
-			<h1>Farming Unit</h1>
-			<div id="farming-slots">
-				<div class="farming-slot">
-					<span class="farming-slot-name">Synthesizer</span>
-				</div>
-				<div class="farming-slot">
-					<span class="farming-slot-name">Biotech</span>
-				</div>
-				<div class="farming-slot">
-					<span class="farming-slot-name">Fuel Tank</span>
-				</div>
-			</div>
-			<div id="farming-extensions">
-				<div class="farming-extension">
-				</div>
-				<div class="farming-extension">
-				</div>
-				<div class="farming-extension">
-				</div>
-			</div>
-			<div id="farming-display">
-
-			</div>
-		</div>
-
-		<div class="gui" id="machine">
-			<h1>Industrial Unit</h1>
-			<div id="machine-display">
-
-			</div>
-			<div id="machine-extensions">
-				<div class="machine-extension" id="machine-fuelTank">
+		<div class="gui-container">
+			<div class="gui" id="farming">
+				<h1>Farming Unit</h1>
+				<div id="farming-display">
 
 				</div>
-				<div class="machine-extension">
+				<div id="farming-slots">
+					<div class="farming-slot">
+						<span class="farming-slot-name">Synthesizer</span>
+					</div>
+					<div class="farming-slot">
+						<span class="farming-slot-name">Biotech</span>
+					</div>
+					<div class="farming-slot">
+						<span class="farming-slot-name">Fuel Tank</span>
+					</div>
 				</div>
-				<div class="machine-extension">
-				</div>
-				<div class="machine-extension">
-				</div>
-				<div class="machine-extension">
-				</div>
-				<div class="machine-extension">
+				<div id="farming-extensions">
+					<div class="farming-extension">
+					</div>
+					<div class="farming-extension">
+					</div>
+					<div class="farming-extension">
+					</div>
 				</div>
 			</div>
-			
+			<div class="gui-container">
+				<div class="gui" id="machine">
+					<h1>Industrial Unit</h1>
+					<div id="machine-display">
+
+					</div>
+					<div id="machine-extensions">
+						<div class="machine-extension" id="machine-fuelTank">
+
+						</div>
+						<div class="machine-extension">
+						</div>
+						<div class="machine-extension">
+						</div>
+						<div class="machine-extension">
+						</div>
+						<div class="machine-extension">
+						</div>
+						<div class="machine-extension">
+						</div>
+					</div>
+					
+				</div>
+			</div>
 		</div>
 		<script src="scripts/constructor.js"></script>
 		<script src="scripts/farming.js"></script>
 		<script src="scripts/machines.js"></script>
 		<script src="scripts/computer.js"></script>
 		<script type="module" src="scripts/script.js"></script>
+		<script src="scripts/algorithm.js"></script>
 		</script>
 	</body>
 </html>
